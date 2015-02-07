@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FusionPInvoke.9DAC4D10-8FBC-4D8C-873A-7E6440E311DC</id>
+    <version>0.1</version>
+    <title>FusionPInvoke</title>
+    <authors>Denis Kulikov</authors>
+    <owners>Denis Kulikov</owners>
+    <licenseUrl>https://github.com/CDuke/FusionPInvoke/blob/master/LICENCE.txt</licenseUrl>
+    <projectUrl>https://github.com/CDuke/FusionPInvoke</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fusion P/Invoke description</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>Fusion PInvoke</tags>
+  </metadata>
+  <files>
+    <file src="FusionPInvoke.dll" target="lib" />
+  </files>
+</package>
