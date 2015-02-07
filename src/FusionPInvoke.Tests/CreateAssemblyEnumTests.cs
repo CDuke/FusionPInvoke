@@ -12,7 +12,7 @@ namespace FusionPInvoke.Tests
         public void WhenGetEnumThenMustReturnSuccessResult(CreateAssemblyEnumFlags flasg)
         {
             IAssemblyEnum assemblyEnum;
-            var hresult = Fusion.CreateAssemblyEnum(out assemblyEnum, null, null, flasg, 0);
+            var hresult = FusionNative.CreateAssemblyEnum(out assemblyEnum, null, null, flasg, 0);
             Assert.True(hresult);
             Assert.NotNull(assemblyEnum);
         }

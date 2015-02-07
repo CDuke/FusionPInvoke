@@ -13,11 +13,11 @@ namespace FusionPInvoke.Tests
             var gacPathLength = 0;
 
             var flags = GetCachePathFlags.Gac;
-            var hResult = Fusion.GetCachePath(flags, null, ref gacPathLength);
+            var hResult = FusionNative.GetCachePath(flags, null, ref gacPathLength);
             if (hResult.InsufficientBuffer)
             {
                 var gacPath = new StringBuilder(gacPathLength);
-                hResult = Fusion.GetCachePath(flags, gacPath, ref gacPathLength);
+                hResult = FusionNative.GetCachePath(flags, gacPath, ref gacPathLength);
 
                 Assert.True(hResult);
                 var expectedPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "assembly", "GAC");

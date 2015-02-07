@@ -3,13 +3,18 @@
 namespace FusionPInvoke
 {
     /// <summary>
-    /// Flags used in <see cref="Fusion.CreateAssemblyNameObject"/>.
+    /// Flags used in <see cref="FusionNative.CreateAssemblyNameObject"/>.
     /// </summary>
     [Flags]
     public enum CreateAssemblyNameObjectFlags
     {
         /// <summary>
-        /// If this flag is specified, the assemblyName parameter is a full assembly name and is parsed to the individual properties. If the flag is not specified, assemblyName is the "Name" portion of the assembly name.
+        /// If this flag is specified, assemblyName is the Name portion of the side-by-side assembly name.
+        /// </summary>
+        Default = 0,
+
+        /// <summary>
+        /// If this flag is specified, the assemblyName parameter is a full assembly name and is parsed to the individual properties.
         /// </summary>
         CanofParseDispayName = 1,
 

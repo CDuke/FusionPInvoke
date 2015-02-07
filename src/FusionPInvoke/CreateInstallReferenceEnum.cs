@@ -1,7 +1,7 @@
 ﻿namespace FusionPInvoke
 {
     /// <summary>
-    /// Flags used in <see cref="Fusion.CreateInstallReferenceEnum"/>.
+    /// Flags used in <see cref="FusionNative.CreateInstallReferenceEnum"/>.
     /// </summary>
     public enum CreateInstallReferenceEnum
     {

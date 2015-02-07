@@ -58,7 +58,7 @@ namespace FusionPInvoke
         /// Creates a shallow copy of this <see cref="IAssemblyName"/> object.
         /// </summary>
         /// <param name="assemblyName">Assembly name.</param>
-        /// <returns><see cref="HRESULT"/></returns>
+        /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
         HRESULT Clone(out IAssemblyName assemblyName);
     }

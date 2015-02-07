@@ -13,7 +13,7 @@ namespace FusionPInvoke.Tests
         public void GetNextMustReturnAtLeastOneAssembly(CreateAssemblyEnumFlags flags)
         {
             IAssemblyEnum assemblyEnum;
-            var hresult = Fusion.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
+            var hresult = FusionNative.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
             Assert.True(hresult);
 
             IApplicationContext applicationContext;
@@ -30,7 +30,7 @@ namespace FusionPInvoke.Tests
         public void IfResetAssemblyNameMustBeEquals(CreateAssemblyEnumFlags flags)
         {
             IAssemblyEnum assemblyEnum;
-            var hresult = Fusion.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
+            var hresult = FusionNative.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
             Assert.True(hresult);
 
             IApplicationContext applicationContext;
@@ -50,7 +50,7 @@ namespace FusionPInvoke.Tests
         public void IfCloneMustReturnSame(CreateAssemblyEnumFlags flags)
         {
             IAssemblyEnum assemblyEnum;
-            var hresult = Fusion.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
+            var hresult = FusionNative.CreateAssemblyEnum(out assemblyEnum, null, null, flags, 0);
             Assert.True(hresult);
 
             IApplicationContext applicationContext;

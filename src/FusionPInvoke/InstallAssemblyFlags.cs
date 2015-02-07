@@ -6,6 +6,11 @@
     public enum InstallAssemblyFlags
     {
         /// <summary>
+        /// If the assembly is already installed in the GAC return error.
+        /// </summary>
+        Default = 0,
+
+        /// <summary>
         ///  If the assembly is already installed in the GAC and the file version numbers of the assembly being installed are the same or later, the files are replaced.
         /// </summary>
         Refresh = 1,

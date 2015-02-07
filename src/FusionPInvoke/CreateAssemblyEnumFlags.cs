@@ -18,6 +18,6 @@
         /// <summary>
         /// Enumerates the assemblies that have been downloaded on demand or that have been shadow-copied.
         /// </summary>
-        Download = 4,
+        Download = 4
     }
 }

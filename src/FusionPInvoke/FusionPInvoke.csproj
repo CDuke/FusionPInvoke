@@ -43,7 +43,7 @@
     <Compile Include="GetCachePathFlags.cs" />
     <Compile Include="GetDisplayNameFlags.cs" />
     <Compile Include="CreateAssemblyEnumFlags.cs" />
-    <Compile Include="Fusion.cs" />
+    <Compile Include="FusionNative.cs" />
     <Compile Include="GetNextAssemblyFlags.cs" />
     <Compile Include="GetNextInstallReferenceItem.cs" />
     <Compile Include="GetReferenceFlags.cs" />

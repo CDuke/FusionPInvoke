@@ -6,7 +6,7 @@ namespace FusionPInvoke
     /// <summary>
     /// Provide function from fusion.dll.
     /// </summary>
-    public static class Fusion
+    public static class FusionNative
     {
         /// <summary>
         /// Gets a an IAssemblyEnum instance that can enumerate the objects in the assembly with the specified IAssemblyName.
@@ -17,7 +17,7 @@ namespace FusionPInvoke
         /// <param name="flags">Flags for modifying the enumerator's behavior.</param>
         /// <param name="reserved">Reserved for future extensibility, must be 0.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
-        [DllImport("Fusion.dll", CharSet = CharSet.Auto)]
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateAssemblyEnum(out IAssemblyEnum assemblyEnum,
             IApplicationContext applicationContext, IAssemblyName assemblyName, CreateAssemblyEnumFlags flags, int reserved);
 
@@ -28,8 +28,8 @@ namespace FusionPInvoke
         /// <param name="assemblyName">The name of the assembly for which to create the new <see cref="IAssemblyName"/> instance.</param>
         /// <param name="flags">Flasg <see cref="CreateAssemblyNameObjectFlags"/>.</param>
         /// <param name="reserved">Reserved for future extensibility, must be a 0 (zero).</param>
-        /// <returns><see cref="HRESULT"/>.</returns>
-        [DllImport("fusion.dll")]
+        /// <returns>If this function succeeds, it returns <see cref="HRESULT.S_OK"/>. Otherwise, it returns an HRESULT error code..</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateAssemblyNameObject(out IAssemblyName assemblyNameInstance, string assemblyName, CreateAssemblyNameObjectFlags flags, int reserved);
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace FusionPInvoke
         /// <param name="assemblyCache">Returned assembly cache.</param>
         /// <param name="reserved">Reserved for future extensibility, must be 0 (zero).</param>
         /// <returns><see cref="HRESULT"/>.</returns>
-        [DllImport("fusion.dll")]
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateAssemblyCache(out IAssemblyCache assemblyCache, int reserved);
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace FusionPInvoke
         /// <param name="flags">Flags <see cref="CreateAssemblyCacheItemFlags"/>.</param>
         /// <param name="reserved">Reserved for future extensibility, must be 0 (zero).</param>
         /// <returns><see cref="HRESULT"/>.</returns>
-        [DllImport("fusion.dll")]
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateInstallReferenceEnum(out IInstallReferenceEnum installReferenceEnum, IAssemblyName assemblyName,
             CreateAssemblyCacheItemFlags flags, int reserved);
 
@@ -60,7 +60,7 @@ namespace FusionPInvoke
         /// <param name="cachePath">Returned cache path.</param>
         /// <param name="cachePathLength">Cache path length.</param>
         /// <returns>If <paramref name="cachePath"/> has not enough length return <see cref="HRESULT.E_INSUFFICIENT_BUFFER"/> error and <paramref name="cachePathLength"/> has needed buffer length, otherwise return <see cref="HRESULT.S_OK"/>.</returns>
-        [DllImport("fusion.dll")]
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT GetCachePath(GetCachePathFlags flags,[MarshalAs(UnmanagedType.LPWStr)] StringBuilder cachePath, ref int cachePathLength);
     }
 }

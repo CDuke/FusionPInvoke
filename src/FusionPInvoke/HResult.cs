@@ -7034,6 +7034,14 @@ namespace FusionPInvoke
         public const int COMADMIN_E_PARTITIONS_DISABLED = unchecked((int)0x80110824);
         #endregion
 
+        #region FUSION
+
+        /// <summary>
+        /// Fusion invalid name
+        /// </summary>
+         [Description("Fusion invalid name.")]
+        private const int FUSION_E_INVALID_NAME = unchecked((int)0x80131047);
+        #endregion
         // ******************
         //  FACILITY_AAF
         // ******************
