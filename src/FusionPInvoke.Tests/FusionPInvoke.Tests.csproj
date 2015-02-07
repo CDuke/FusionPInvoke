@@ -43,6 +43,7 @@
     <Compile Include="AssemblyEnumTests.cs" />
     <Compile Include="CreateAssemblyEnumTests.cs" />
     <Compile Include="CreateAssemblyNameObjectTests.cs" />
+    <Compile Include="CreateInstallReferenceEnumTests.cs" />
     <Compile Include="GetCachePathTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

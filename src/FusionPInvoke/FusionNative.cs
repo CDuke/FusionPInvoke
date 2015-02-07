@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace FusionPInvoke
@@ -46,12 +47,12 @@ namespace FusionPInvoke
         /// </summary>
         /// <param name="installReferenceEnum">The returned IInstallReferenceEnum.</param>
         /// <param name="assemblyName">The <see cref="IAssemblyName"/> that identifies the assembly for which to enumerate references.</param>
-        /// <param name="flags">Flags <see cref="CreateAssemblyCacheItemFlags"/>.</param>
+        /// <param name="flags">Flags <see cref="CreateInstallReferenceEnum"/>.</param>
         /// <param name="reserved">Reserved for future extensibility, must be 0 (zero).</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateInstallReferenceEnum(out IInstallReferenceEnum installReferenceEnum, IAssemblyName assemblyName,
-            CreateAssemblyCacheItemFlags flags, int reserved);
+            CreateInstallReferenceEnum flags, int reserved);
 
         /// <summary>
         /// Gets the path to the cached assembly, using the specified flags.
@@ -62,5 +63,49 @@ namespace FusionPInvoke
         /// <returns>If <paramref name="cachePath"/> has not enough length return <see cref="HRESULT.E_INSUFFICIENT_BUFFER"/> error and <paramref name="cachePathLength"/> has needed buffer length, otherwise return <see cref="HRESULT.S_OK"/>.</returns>
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT GetCachePath(GetCachePathFlags flags,[MarshalAs(UnmanagedType.LPWStr)] StringBuilder cachePath, ref int cachePathLength);
+
+        /// <summary>
+        /// Clears the global assembly cache of downloaded assemblies.
+        /// </summary>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT ClearDownloadCache();
+
+        /// <summary>
+        /// This function supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+        /// </summary>
+        /// <param name="assemblyName">Friendly name.</param>
+        /// <param name="applicationContext">Application context.</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT CreateApplicationContext(IAssemblyName assemblyName, out IApplicationContext applicationContext);
+
+        /// <summary>
+        /// Creates a history reader for the specified file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <param name="historyReader">History reader</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT CreateHistoryReader(string filePath, out IHistoryReader historyReader);
+
+        /// <summary>
+        /// Get IUnknown object with the specified IID in the assembly at the specified file path.
+        /// </summary>
+        /// <param name="filePath">A valid path to the requested assembly.</param>
+        /// <param name="interfaceId">Interface guid.</param>
+        /// <param name="identity">The returned interface</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT GetAssemblyIdentityFromFile(string filePath, Guid interfaceId,
+            [MarshalAs(UnmanagedType.IUnknown)] out IntPtr identity);
+
+        /// <summary>
+        /// Gets an IAppIdAuthority instance that manages keys for application identities and references.
+        /// </summary>
+        /// <param name="appIdAuthority">The returned <see cref="IAppIdAuthority"/>.</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT GetAppIdAuthority(out IAppIdAuthority appIdAuthority);
     }
 }
