@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using Xunit;
 
 namespace FusionPInvoke.Tests
@@ -13,14 +14,14 @@ namespace FusionPInvoke.Tests
 
             var flags = GetCachePathFlags.Gac;
             var hResult = Fusion.GetCachePath(flags, null, ref gacPathLength);
-            if (gacPathLength > 0)
+            if (hResult.InsufficientBuffer)
             {
-                var gacPath = new string('\0', gacPathLength);
+                var gacPath = new StringBuilder(gacPathLength);
                 hResult = Fusion.GetCachePath(flags, gacPath, ref gacPathLength);
 
                 Assert.True(hResult);
-                var expectedPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "assembly", "GAC") + '\0';
-                Assert.Equal(expectedPath, gacPath.Trim(), StringComparer.OrdinalIgnoreCase);
+                var expectedPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows), "assembly", "GAC");
+                Assert.Equal(expectedPath, gacPath.ToString(), StringComparer.OrdinalIgnoreCase);
             }
         }
     }

@@ -58,9 +58,9 @@ namespace FusionPInvoke
         /// </summary>
         /// <param name="flags">Flags <see cref="GetCachePathFlags"/>.</param>
         /// <param name="cachePath">Returned cache path.</param>
-        /// <param name="cachePathLength">Chane path length.</param>
-        /// <returns></returns>
+        /// <param name="cachePathLength">Cache path length.</param>
+        /// <returns>If <paramref name="cachePath"/> has not enough length return <see cref="HRESULT.E_INSUFFICIENT_BUFFER"/> error and <paramref name="cachePathLength"/> has needed buffer length, otherwise return <see cref="HRESULT.S_OK"/>.</returns>
         [DllImport("fusion.dll")]
-        public static extern HRESULT GetCachePath(GetCachePathFlags flags, [MarshalAs(UnmanagedType.LPWStr)] string cachePath, ref int cachePathLength);
+        public static extern HRESULT GetCachePath(GetCachePathFlags flags,[MarshalAs(UnmanagedType.LPWStr)] StringBuilder cachePath, ref int cachePathLength);
     }
 }

@@ -14,7 +14,7 @@ namespace FusionPInvoke
         System.IComparable<HRESULT>,
         System.IComparable<int>
     {
-        private int _value;
+        private readonly int _value;
 
         /// <summary>
         /// Converts the specified HRESULT error code to a corresponding System.Exception object.
@@ -23,7 +23,7 @@ namespace FusionPInvoke
         /// <returns></returns>
         public static System.Exception GetExceptionForHR(int hr)
         {
-            return System.Runtime.InteropServices.Marshal.GetExceptionForHR(hr);
+            return Marshal.GetExceptionForHR(hr);
         }
 
         /// <summary>
@@ -169,16 +169,18 @@ namespace FusionPInvoke
             {
                 return _value.ToString();
             }
-            object[] o = fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            var o = fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
             DescriptionAttribute descr = null;
-            if (o != null && o.Length > 0) descr = (DescriptionAttribute)o[0];
-            string s = (descr != null) ? fi.Name + ": " + descr.Description : fi.Name;
+            if (o.Length > 0)
+                descr = (DescriptionAttribute)o[0];
+            var s = (descr != null) ? fi.Name + ": " + descr.Description : fi.Name;
             return s;
         }
         #endregion
 
         public bool Failed { get { return _value < 0; } }
         public bool Succeeded { get { return _value >= 0; } }
+        public bool InsufficientBuffer { get { return _value == E_INSUFFICIENT_BUFFER; } }
 
 //        public static bool FAILED(int hr) { return hr < 0; }
 //        public static bool SUCCEEDED(int hr) { return hr >= 0; }
@@ -283,6 +285,12 @@ namespace FusionPInvoke
         ///</summary>
         [Description("One or more arguments are invalid")]
         public const int E_INVALIDARG = unchecked((int)0x80070057);
+
+        ///<summary>
+        /// The buffer is not big enough for the data.
+        ///</summary>
+        [Description(" The buffer is not big enough for the data.")]
+        public const int E_INSUFFICIENT_BUFFER = unchecked((int)0x8007007A);
 
         ///<summary>
         ///No such interface supported
