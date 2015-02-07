@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPInvoke", "FusionPInvoke\FusionPInvoke.csproj", "{619A1F4B-DFC0-4D50-B4DA-6C0AF4CAAD32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPInvoke.Tests", "FusionPInvoke.Tests\FusionPInvoke.Tests.csproj", "{4D317FD9-B8FC-4089-8081-92181812FE6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{619A1F4B-DFC0-4D50-B4DA-6C0AF4CAAD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619A1F4B-DFC0-4D50-B4DA-6C0AF4CAAD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619A1F4B-DFC0-4D50-B4DA-6C0AF4CAAD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D317FD9-B8FC-4089-8081-92181812FE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D317FD9-B8FC-4089-8081-92181812FE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D317FD9-B8FC-4089-8081-92181812FE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D317FD9-B8FC-4089-8081-92181812FE6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
