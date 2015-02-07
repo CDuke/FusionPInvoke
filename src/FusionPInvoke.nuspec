@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>FusionPInvoke.9DAC4D10-8FBC-4D8C-873A-7E6440E311DC</id>
-    <version>0.1</version>
+    <id>FusionPInvoke</id>
+    <version>0.1.1-alpha</version>
     <title>FusionPInvoke</title>
     <authors>Denis Kulikov</authors>
     <owners>Denis Kulikov</owners>

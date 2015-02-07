@@ -4,10 +4,10 @@ open System.Xml
 
 // Properties
 let buildDir = "./bin/"
-let packageBuildDir = "./nuget_bin"
 
 // files
 let slnReferences = !!"./src/FusionPInvoke.sln"
+let nuspecFile = "./src/FusionPInvoke.nuspec"
 
 // Targets
 Target "Clean" (fun _ ->
@@ -26,14 +26,13 @@ Target "BuildApp" (fun _ ->
 )
 
 Target "CreatePackage" (fun _ ->
-// Copy all the package files into a package folder
-    //CopyFiles packagingDir allPackageFiles
-
+    let properties = ReadFileAsString nuspecFile |> getNuspecProperties
     NuGet (fun p -> 
         {p with
+            Version = properties.Version
             OutputPath = buildDir
             WorkingDir = buildDir})
-            "./src/FusionPInvoke.nuspec"
+            nuspecFile
 )
 
 Target "All" DoNothing
