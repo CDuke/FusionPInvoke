@@ -54,7 +54,7 @@ namespace FusionPInvoke
         ConfigMask = 0x100,
 
         /// <summary>
-        /// MVID.
+        /// Module version identifier.
         /// </summary>
         Mvid = 0x200,
 

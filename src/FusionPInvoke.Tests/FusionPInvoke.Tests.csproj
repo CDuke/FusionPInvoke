@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyEnumTests.cs" />
+    <Compile Include="AssemblyNameTests.cs" />
     <Compile Include="CreateAssemblyEnumTests.cs" />
     <Compile Include="CreateAssemblyNameObjectTests.cs" />
     <Compile Include="CreateInstallReferenceEnumTests.cs" />

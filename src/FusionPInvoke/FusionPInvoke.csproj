@@ -34,10 +34,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyBindFlags.cs" />
     <Compile Include="AssemblyComparisonResult.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AssemblyInfoFlags.cs" />
     <Compile Include="AssemblyNameEqualsFlags.cs" />
+    <Compile Include="AssemblyPropertyId.cs" />
     <Compile Include="CreateAssemblyCacheItemFlags.cs" />
     <Compile Include="CreateAssemblyNameObjectFlags.cs" />
     <Compile Include="CreateInstallReferenceFlags.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="IAssemblyCacheItem.cs" />
     <Compile Include="IAssemblyEnum.cs" />
     <Compile Include="IAssemblyName.cs" />
+    <Compile Include="IAssemblyScavenger.cs" />
     <Compile Include="IDefinitionAppId.cs" />
     <Compile Include="IDefinitionIdentity.cs" />
     <Compile Include="IDENTITY_ATTRIBUTE.cs" />

@@ -75,7 +75,7 @@
         ConfigMask = 0x800,
 
         /// <summary>
-        /// By mvid.
+        /// By module version identifier.
         /// </summary>
         Mvid = 0x1000,
 
