@@ -16,7 +16,8 @@ namespace FusionPInvoke
         /// </summary>
         /// <param name="count">Count of items to get.</param>
         /// <param name="attributes">Readed attributes.</param>
-        /// <returns><see cref="HRESULT"/>.</returns>
+        /// <returns>Readed attributes count.</returns>
+        /// <remarks>If return value less then <paramref name="count"/>, then no more attributes.</remarks>
         [SecurityCritical]
         int Next(int count, [Out, MarshalAs(UnmanagedType.LPArray)] IDENTITY_ATTRIBUTE[] attributes);
 
@@ -26,6 +27,7 @@ namespace FusionPInvoke
         /// <param name="available"></param>
         /// <param name="data"></param>
         /// <returns></returns>
+        /// <remarks>Use <see cref="Next"/>.</remarks>
         [SecurityCritical]
         int CurrentIntoBuffer(int available, [Out, MarshalAs(UnmanagedType.LPArray)] byte[] data);
 
@@ -45,7 +47,7 @@ namespace FusionPInvoke
         /// <summary>
         /// Gets an interface pointer to a new <see cref="IEnumIDENTITY_ATTRIBUTE"/> that contains the same members as this <see cref="IEnumIDENTITY_ATTRIBUTE"/>.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="IEnumIDENTITY_ATTRIBUTE"/> instance.</returns>
         [SecurityCritical]
         IEnumIDENTITY_ATTRIBUTE Clone();
     }
