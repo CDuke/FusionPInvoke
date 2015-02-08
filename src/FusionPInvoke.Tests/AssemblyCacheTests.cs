@@ -10,7 +10,7 @@ namespace FusionPInvoke.Tests
         private const string MscorlibName = "mscorlib";
 
         [Fact]
-        public void FactMethodName()
+        public void GivenAssemblyExistsInGac_WhenQueryAssemblyInfo_ThenInfoReturned()
         {
             var assemblyCache = GetGlobalAssemblyCache();
 
@@ -23,6 +23,17 @@ namespace FusionPInvoke.Tests
                 hResult = assemblyCache.QueryAssemblyInfo(QueryAssemblyInfoFlags.None, MscorlibName, ref assemblyInfo);
                 Assert.True(hResult);
             }
+        }
+
+        [Fact]
+        public void WhenCreateAssemblyScavenger_ThenScavengerReturned()
+        {
+            var assemblyCache = GetGlobalAssemblyCache();
+
+            IAssemblyScavenger assemblyScavenger;
+            var hResult = assemblyCache.CreateAssemblyScavenger(out assemblyScavenger);
+            Assert.True(hResult);
+            Assert.NotNull(assemblyScavenger);
         }
 
         private static IAssemblyCache GetGlobalAssemblyCache()

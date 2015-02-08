@@ -53,7 +53,7 @@ namespace FusionPInvoke
         /// <param name="scavenger">Return unknown object</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT CreateAssemblyScavenger([MarshalAs(UnmanagedType.IUnknown)] out object scavenger);
+        HRESULT CreateAssemblyScavenger(out IAssemblyScavenger scavenger);
 
         /// <summary>
         /// Installs the specified assembly in the global assembly cache.
