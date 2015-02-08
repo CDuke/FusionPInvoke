@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyBindFlags.cs" />
+    <Compile Include="AssemblyCacheItemFlags.cs" />
     <Compile Include="AssemblyComparisonResult.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AssemblyInfoFlags.cs" />

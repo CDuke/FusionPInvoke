@@ -158,8 +158,7 @@ namespace FusionPInvoke
         /// <remarks>The <paramref name="namePostPolicy"/> output parameter is set only if the function returns <see cref="HRESULT.FUSION_E_REF_DEF_MISMATCH"/>. Otherwise, it is null.</remarks>
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT PreBindAssemblyEx(IApplicationContext applicationContext,
-            IAssemblyName assemblyName,
-            IntPtr parentAssembly, string runtimeVersion, out IAssemblyName namePostPolicy, int reserved);
+            IAssemblyName assemblyName, IntPtr parentAssembly, string runtimeVersion, out IAssemblyName namePostPolicy, int reserved);
 
         /// <summary>
         /// Compares two assembly identities to determine whether they are equivalent.
@@ -173,7 +172,6 @@ namespace FusionPInvoke
         /// <returns></returns>
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CompareAssemblyIdentity(string assemblyIdentity1, bool unified1,
-            string assemblyIdentity2, bool unified2,
-            out bool equivalent, out AssemblyComparisonResult comparisonResult);
+            string assemblyIdentity2, bool unified2, out bool equivalent, out AssemblyComparisonResult comparisonResult);
     }
 }
