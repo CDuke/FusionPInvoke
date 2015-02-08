@@ -25,13 +25,13 @@ namespace FusionPInvoke
         public long AssemblySize;
 
         /// <summary>
-        /// Current path to the manifest file.
+        /// Current path to the manifest file. The path must end with a null character.
         /// </summary>
-        ///[MarshalAs(UnmanagedType.LPWStr)]
-        public StringBuilder AssemblyPath;
+        [MarshalAs(UnmanagedType.LPWStr)]
+        public string AssemblyPath;
 
         /// <summary>
-        /// The number of wide characters in <see cref="AssemblyPath"/>.
+        /// The number of wide characters in <see cref="AssemblyPath"/>, including the null terminator.
         /// </summary>
         public int AssemblyPathLength;
     }

@@ -47,6 +47,7 @@
     <Compile Include="CreateInstallReferenceEnumTests.cs" />
     <Compile Include="GetAssemblyIdentityFromFileTests.cs" />
     <Compile Include="GetCachePathTests.cs" />
+    <Compile Include="AssemblyCacheTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

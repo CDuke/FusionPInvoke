@@ -106,14 +106,16 @@ namespace FusionPInvoke.Tests
 
         static IAssemblyName GetMscorlib()
         {
-            IAssemblyName assemblyName;
-            var hresult = FusionNative.CreateAssemblyNameObject(out assemblyName, MscorlibStrongName,
+            IAssemblyName filterAssemblyName;
+            var hresult = FusionNative.CreateAssemblyNameObject(out filterAssemblyName, MscorlibStrongName,
                 CreateAssemblyNameObjectFlags.CanofParseDispayName, 0);
             Assert.True(hresult, "Couldn't create assembly name object");
 
-            var assemblyEnum = GetGacAssemblyEnum(assemblyName);
+            var assemblyEnum = GetGacAssemblyEnum(filterAssemblyName);
 
+            IAssemblyName assemblyName;
             IApplicationContext applicationContext;
+            hresult = assemblyEnum.GetNextAssembly(out applicationContext, out assemblyName, GetNextAssemblyFlags.None);
             hresult = assemblyEnum.GetNextAssembly(out applicationContext, out assemblyName, GetNextAssemblyFlags.None);
             Assert.True(hresult, "Couldn't read next assembly name object");
 

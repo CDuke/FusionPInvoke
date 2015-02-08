@@ -59,6 +59,11 @@ namespace FusionPInvoke
         Mvid = 0x200,
 
         /// <summary>
+        /// Content type.
+        /// </summary>
+        ContentType = 0x400,
+
+        /// <summary>
         /// Full name.
         /// </summary>
         Full = Version
@@ -66,5 +71,6 @@ namespace FusionPInvoke
             | PublicKeyToken
             | ProcessorArchitecture
             | Retargetable
+            | ContentType
     }
 }

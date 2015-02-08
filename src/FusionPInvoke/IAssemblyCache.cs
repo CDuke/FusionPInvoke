@@ -29,11 +29,11 @@ namespace FusionPInvoke
         /// Gets the requested data about the specified assembly.
         /// </summary>
         /// <param name="flags">Flags <see cref="QueryAssemblyInfoFlags"/>.</param>
-        /// <param name="assemblyName">The name of the assembly for which data will be retrieved.</param>
-        /// <param name="assemblyInfo">Contains data about the assembly.</param>
+        /// <param name="assemblyName">Containing the fully-specified strong name of the assembly to query. If the name is not fully specified, the result of the method is undefined.</param>
+        /// <param name="assemblyInfo">Contains info about the assembly.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT QueryAssemblyInfo(int flags, [MarshalAs(UnmanagedType.LPWStr)] string assemblyName, ref AssemblyInfo assemblyInfo);
+        HRESULT QueryAssemblyInfo(QueryAssemblyInfoFlags flags, string assemblyName, ref AssemblyInfo assemblyInfo);
 
         /// <summary>
         /// Gets a reference to a new <see cref="IAssemblyCacheItem"/> object.
