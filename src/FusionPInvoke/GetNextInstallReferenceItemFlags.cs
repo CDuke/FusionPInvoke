@@ -1,9 +1,9 @@
 ﻿namespace FusionPInvoke
 {
     /// <summary>
-    /// Flags used in <see cref="FusionNative.CreateInstallReferenceEnum"/>.
+    /// Flasg used in <see cref="IInstallReferenceEnum.GetNextInstallReferenceItem"/>.
     /// </summary>
-    public enum CreateInstallReferenceEnum
+    public enum GetNextInstallReferenceItemFlags
     {
         /// <summary>
         /// None.

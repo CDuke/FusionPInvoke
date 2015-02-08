@@ -8,7 +8,7 @@ namespace FusionPInvoke
     public interface IEnumDefinitionIdentity
     {
         [SecurityCritical]
-        uint Next(int celt, out IDefinitionIdentity[] definitionIdentity);
+        uint Next(int celt, [Out, MarshalAs(UnmanagedType.LPArray)] IDefinitionIdentity[] definitionIdentity);
 
         [SecurityCritical]
         void Skip(int celt);

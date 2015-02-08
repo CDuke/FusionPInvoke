@@ -9,45 +9,55 @@ namespace FusionPInvoke
     public interface IAppIdAuthority
     {
         [SecurityCritical]
-        IDefinitionAppId TextToDefinition(int flags, string identity);
+        IDefinitionAppId TextToDefinition(int flags, [MarshalAs(UnmanagedType.LPWStr)] string identity);
 
         [SecurityCritical]
-        IReferenceAppId TextToReference(int flags, string identity);
+        IReferenceAppId TextToReference(int flags, [MarshalAs(UnmanagedType.LPWStr)] string identity);
 
         [SecurityCritical]
+        [return:MarshalAs(UnmanagedType.LPWStr)]
         string DefinitionToText(int flags, IDefinitionAppId definitionAppId);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string ReferenceToText(int flags, IReferenceAppId referenceAppId);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.Bool)]
         bool AreDefinitionsEqual(int flags, IDefinitionAppId definition1, IDefinitionAppId definition2);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.Bool)]
         bool AreReferencesEqual(int flags, IReferenceAppId reference1, IReferenceAppId reference2);
 
         [SecurityCritical]
-        bool AreTextualDefinitionsEqual(int flags, string appIdLeft, string appIdRight);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        bool AreTextualDefinitionsEqual(int flags, [MarshalAs(UnmanagedType.LPWStr)] string appIdLeft, [MarshalAs(UnmanagedType.LPWStr)] string appIdRight);
 
         [SecurityCritical]
-        bool AreTextualReferencesEqual(int flags, string appIdLeft, string appIdRight);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        bool AreTextualReferencesEqual(int flags, [MarshalAs(UnmanagedType.LPWStr)] string appIdLeft, [MarshalAs(UnmanagedType.LPWStr)] string appIdRight);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.Bool)]
         bool DoesDefinitionMatchReference(int flags, IDefinitionAppId definitionIdentity, IReferenceAppId referenceIdentity);
 
         [SecurityCritical]
-        bool DoesTextualDefinitionMatchTextualReference(int flags, string definition, string reference);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        bool DoesTextualDefinitionMatchTextualReference(int flags, [MarshalAs(UnmanagedType.LPWStr)] string definition, [MarshalAs(UnmanagedType.LPWStr)] string reference);
 
         [SecurityCritical]
-        HRESULT HashReference(int flags, IReferenceAppId referenceIdentity);
+        int HashReference(int flags, IReferenceAppId referenceIdentity);
 
         [SecurityCritical]
-        UInt64 HashDefinition(int flags, IDefinitionAppId definitionIdentity);
+        int HashDefinition(int flags, IDefinitionAppId definitionIdentity);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string GenerateDefinitionKey(int flags, IDefinitionAppId definitionIdentity);
 
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string GenerateReferenceKey(int flags, IReferenceAppId referenceIdentity);
 
         [SecurityCritical]

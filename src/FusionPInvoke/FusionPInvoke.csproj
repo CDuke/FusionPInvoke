@@ -34,18 +34,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyComparisonResult.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AssemblyInfoFlags.cs" />
     <Compile Include="AssemblyNameEqualsFlags.cs" />
     <Compile Include="CreateAssemblyCacheItemFlags.cs" />
     <Compile Include="CreateAssemblyNameObjectFlags.cs" />
-    <Compile Include="CreateInstallReferenceEnum.cs" />
+    <Compile Include="CreateInstallReferenceFlags.cs" />
     <Compile Include="GetCachePathFlags.cs" />
     <Compile Include="GetDisplayNameFlags.cs" />
     <Compile Include="CreateAssemblyEnumFlags.cs" />
     <Compile Include="FusionNative.cs" />
     <Compile Include="GetNextAssemblyFlags.cs" />
-    <Compile Include="GetNextInstallReferenceItem.cs" />
+    <Compile Include="GetNextInstallReferenceItemFlags.cs" />
     <Compile Include="GetReferenceFlags.cs" />
     <Compile Include="HResult.cs" />
     <Compile Include="IAppIdAuthority.cs" />
@@ -57,9 +58,11 @@
     <Compile Include="IDefinitionAppId.cs" />
     <Compile Include="IDefinitionIdentity.cs" />
     <Compile Include="IDENTITY_ATTRIBUTE.cs" />
+    <Compile Include="IDENTITY_ATTRIBUTE_BLOB.cs" />
     <Compile Include="IEnumDefinitionIdentity.cs" />
     <Compile Include="IEnumIDENTITY_ATTRIBUTE.cs" />
     <Compile Include="IEnumReferenceIdentity.cs" />
+    <Compile Include="IIdentityAuthority.cs" />
     <Compile Include="IInstallReferenceEnum.cs" />
     <Compile Include="IInstallReferenceItem.cs" />
     <Compile Include="InstallAssemblyFlags.cs" />

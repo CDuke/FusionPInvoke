@@ -18,6 +18,6 @@ namespace FusionPInvoke
         /// <param name="reserved">Reserved for future extensibility, must be a 0 (zero).</param>
         /// <returns>Return <see cref="HRESULT.S_OK"/> when the next item is returned successfully and <see cref="HRESULT.S_FALSE"/> when no more items.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT GetNextInstallReferenceItem(out IInstallReferenceItem installReferenceItem, GetNextInstallReferenceItem flags, int reserved);
+        HRESULT GetNextInstallReferenceItem(out IInstallReferenceItem installReferenceItem, GetNextInstallReferenceItemFlags flags, int reserved);
     }
 }

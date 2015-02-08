@@ -7,8 +7,10 @@ namespace FusionPInvoke
     {
         [MarshalAs(UnmanagedType.LPWStr)]
         public string Namespace;
+
         [MarshalAs(UnmanagedType.LPWStr)]
         public string Name;
+
         [MarshalAs(UnmanagedType.LPWStr)]
         public string Value;
     }

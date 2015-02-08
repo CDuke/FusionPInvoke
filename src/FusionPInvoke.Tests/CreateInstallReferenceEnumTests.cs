@@ -16,7 +16,7 @@ namespace FusionPInvoke.Tests
 
             IInstallReferenceEnum installReferenceEnum;
             Assert.True(FusionNative.CreateInstallReferenceEnum(out installReferenceEnum, assemblyName,
-                CreateInstallReferenceEnum.None, 0));
+                CreateInstallReferenceFlags.None, 0));
             Assert.NotNull(installReferenceEnum);
         }
     }

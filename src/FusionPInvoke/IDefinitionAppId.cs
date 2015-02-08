@@ -9,22 +9,25 @@ namespace FusionPInvoke
     public interface IDefinitionAppId
     {
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string get_SubscriptionId();
 
-        void put_SubscriptionId(string subscription);
+        void put_SubscriptionId([MarshalAs(UnmanagedType.LPWStr)]string subscription);
 
         [SecurityCritical]
         [ResourceExposure(ResourceScope.Machine)]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string get_Codebase();
 
         [SecurityCritical]
         [ResourceExposure(ResourceScope.Machine)]
-        void put_Codebase(string codeBase);
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        void put_Codebase([MarshalAs(UnmanagedType.LPWStr)] string codeBase);
 
         [SecurityCritical]
         IEnumDefinitionIdentity EnumAppPath();
 
         [SecurityCritical]
-        void SetAppPath([In] uint cIDefinitionIdentity, IDefinitionIdentity[] definitionIdentity);
+        void SetAppPath(int cIDefinitionIdentity, [MarshalAs(UnmanagedType.LPArray)]  IDefinitionIdentity[] definitionIdentity);
     }
 }

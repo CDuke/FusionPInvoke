@@ -7037,10 +7037,16 @@ namespace FusionPInvoke
         #region FUSION
 
         /// <summary>
-        /// Fusion invalid name
+        /// Fusion invalid name.
         /// </summary>
-         [Description("Fusion invalid name.")]
+        [Description("Fusion invalid name.")]
         private const int FUSION_E_INVALID_NAME = unchecked((int)0x80131047);
+
+        /// <summary>
+        /// The located assembly's manifest definition does not match the assembly reference.
+        /// </summary>
+        [Description("The located assembly's manifest definition does not match the assembly reference.")]
+        private const int FUSION_E_REF_DEF_MISMATCH = unchecked((int) 0x80131040);
         #endregion
         // ******************
         //  FACILITY_AAF

@@ -9,15 +9,17 @@ namespace FusionPInvoke
     public interface IReferenceIdentity
     {
         [SecurityCritical]
-        string GetAttribute(string @namespace,string name);
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        string GetAttribute([MarshalAs(UnmanagedType.LPWStr)] string @namespace, [MarshalAs(UnmanagedType.LPWStr)] string name);
 
         [SecurityCritical]
-        void SetAttribute(string @namespace, string name, string value);
+        void SetAttribute([MarshalAs(UnmanagedType.LPWStr)] string @namespace, [MarshalAs(UnmanagedType.LPWStr)] string name,
+            [In, MarshalAs(UnmanagedType.LPWStr)] string value);
 
         [SecurityCritical]
         IEnumIDENTITY_ATTRIBUTE EnumAttributes();
 
         [SecurityCritical]
-        IReferenceIdentity Clone(IntPtr cDeltas, IDENTITY_ATTRIBUTE[] deltas);
+        IReferenceIdentity Clone(IntPtr cDeltas, [MarshalAs(UnmanagedType.LPArray)] IDENTITY_ATTRIBUTE[] deltas);
     }
 }

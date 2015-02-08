@@ -9,16 +9,18 @@ namespace FusionPInvoke
     public interface IReferenceAppId
     {
         [SecurityCritical]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string get_SubscriptionId();
 
-        void put_SubscriptionId(string subscription);
+        void put_SubscriptionId([MarshalAs(UnmanagedType.LPWStr)] string subscription);
 
         [SecurityCritical]
         [ResourceExposure(ResourceScope.Machine)]
+        [return: MarshalAs(UnmanagedType.LPWStr)]
         string get_Codebase();
 
         [ResourceExposure(ResourceScope.Machine)]
-        void put_Codebase(string codeBase);
+        void put_Codebase([MarshalAs(UnmanagedType.LPWStr)] string codeBase);
 
         [SecurityCritical]
         IEnumReferenceIdentity EnumAppPath();
