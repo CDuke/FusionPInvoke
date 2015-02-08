@@ -20,7 +20,10 @@ namespace FusionPInvoke
         /// <param name="disposition">Result of uninstalling assembly.</param>
         /// <returns>If assembly has been unistalled return <see cref="HRESULT.S_OK"/>, otherwise <see cref="HRESULT.S_FALSE"/> and the reason described in <see cref="disposition"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT UninstallAssembly(UninstallAssemblyFlags flags, string assemblyName, InstallReference[] references, out UninstallAssemblyResult disposition);
+        HRESULT UninstallAssembly(UninstallAssemblyFlags flags,
+            [MarshalAs(UnmanagedType.LPWStr)] string assemblyName,
+            InstallReference[] references,
+            out UninstallAssemblyResult disposition);
 
         /// <summary>
         /// Gets the requested data about the specified assembly.
@@ -30,7 +33,7 @@ namespace FusionPInvoke
         /// <param name="assemblyInfo">Contains data about the assembly.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT QueryAssemblyInfo(int flags, string assemblyName, ref AssemblyInfo assemblyInfo);
+        HRESULT QueryAssemblyInfo(int flags, [MarshalAs(UnmanagedType.LPWStr)] string assemblyName, ref AssemblyInfo assemblyInfo);
 
         /// <summary>
         /// Gets a reference to a new <see cref="IAssemblyCacheItem"/> object.
@@ -41,7 +44,8 @@ namespace FusionPInvoke
         /// <param name="assemblyName">Uncanonicalized, comma-separated name=value pairs.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT CreateAssemblyCacheItem(CreateAssemblyCacheItemFlags flags, IntPtr reserved, out IAssemblyCacheItem assemblyCacheItem, string assemblyName);
+        HRESULT CreateAssemblyCacheItem(CreateAssemblyCacheItemFlags flags, IntPtr reserved, out IAssemblyCacheItem assemblyCacheItem,
+            [MarshalAs(UnmanagedType.LPWStr)] string assemblyName);
 
         /// <summary>
         /// Reserved for internal use by the fusion technology.
@@ -59,6 +63,6 @@ namespace FusionPInvoke
         /// <param name="reference">Contains <see cref="InstallReference"/>  that indicates the application on whose behalf the assembly is being installed. Although this is not recommended, this parameter can be null, but this leaves the assembly without any application reference.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT InstallAssembly(InstallAssemblyFlags flags, string manifestFilePath, InstallReference[] reference);
+        HRESULT InstallAssembly(InstallAssemblyFlags flags, [MarshalAs(UnmanagedType.LPWStr)] string manifestFilePath, InstallReference[] reference);
     }
 }

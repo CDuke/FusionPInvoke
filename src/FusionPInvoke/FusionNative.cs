@@ -43,18 +43,6 @@ namespace FusionPInvoke
         public static extern HRESULT CreateAssemblyCache(out IAssemblyCache assemblyCache, int reserved);
 
         /// <summary>
-        /// Gets an <see cref="IInstallReferenceEnum"/> instance that represents a list of an application's references to the specified assembly.
-        /// </summary>
-        /// <param name="installReferenceEnum">The returned IInstallReferenceEnum.</param>
-        /// <param name="assemblyName">The <see cref="IAssemblyName"/> that identifies the assembly for which to enumerate references.</param>
-        /// <param name="flags">Flags <see cref="CreateInstallReferenceEnum"/>.</param>
-        /// <param name="reserved">Reserved for future extensibility, must be 0 (zero).</param>
-        /// <returns><see cref="HRESULT"/>.</returns>
-        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern HRESULT CreateInstallReferenceEnum(out IInstallReferenceEnum installReferenceEnum, IAssemblyName assemblyName,
-            CreateInstallReferenceFlags flags, int reserved);
-
-        /// <summary>
         /// Gets the path to the cached assembly, using the specified flags.
         /// </summary>
         /// <param name="flags">Flags <see cref="GetCachePathFlags"/>.</param>
@@ -72,6 +60,32 @@ namespace FusionPInvoke
         public static extern HRESULT ClearDownloadCache();
 
         /// <summary>
+        /// Gets a value that indicates whether the specified assembly is managed.
+        /// </summary>
+        /// <param name="assemblyReference">The name of the assembly to check.</param>
+        /// <param name="isFrameworkAssembly">A Boolean value that indicates whether the assembly is managed.</param>
+        /// <param name="frameworkAssemblyIdentity"> An uncanonicalized string that contains the unique identity of the assembly.</param>
+        /// <param name="frameworkAssemblyIdentityLength">The length of <paramref name="frameworkAssemblyIdentity"/>.</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        /// <remarks>If this assembly is part of the .NET Framework, the <paramref name="isFrameworkAssembly"/> parameter will contain a Boolean value of true.
+        /// If the named assembly is not part of the .NET Framework, or if the <paramref name="assemblyReference"/> parameter does not name an assembly, <paramref name="isFrameworkAssembly"/> will contain a Boolean value of false.</remarks>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT IsFrameworkAssembly(string assemblyReference, out bool isFrameworkAssembly,
+            string frameworkAssemblyIdentity, int frameworkAssemblyIdentityLength);
+
+        /// <summary>
+        /// Gets an <see cref="IInstallReferenceEnum"/> instance that represents a list of an application's references to the specified assembly.
+        /// </summary>
+        /// <param name="installReferenceEnum">The returned IInstallReferenceEnum.</param>
+        /// <param name="assemblyName">The <see cref="IAssemblyName"/> that identifies the assembly for which to enumerate references.</param>
+        /// <param name="flags">Flags <see cref="CreateInstallReferenceEnum"/>.</param>
+        /// <param name="reserved">Reserved for future extensibility, must be 0 (zero).</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT CreateInstallReferenceEnum(out IInstallReferenceEnum installReferenceEnum, IAssemblyName assemblyName,
+            CreateInstallReferenceFlags flags, int reserved);
+
+        /// <summary>
         /// This function supports the .NET Framework infrastructure and is not intended to be used directly from your code.
         /// </summary>
         /// <param name="assemblyName">Friendly name.</param>
@@ -80,14 +94,14 @@ namespace FusionPInvoke
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern HRESULT CreateApplicationContext(IAssemblyName assemblyName, out IApplicationContext applicationContext);
 
-//        /// <summary>
-//        /// Creates a history reader for the specified file.
-//        /// </summary>
-//        /// <param name="filePath">The file path.</param>
-//        /// <param name="historyReader">History reader</param>
-//        /// <returns><see cref="HRESULT"/>.</returns>
-//        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-//        public static extern HRESULT CreateHistoryReader(string filePath, out IHistoryReader historyReader);
+        /// <summary>
+        /// Creates a history reader for the specified file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <param name="historyReader">History reader</param>
+        /// <returns><see cref="HRESULT"/>.</returns>
+        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern HRESULT CreateHistoryReader(string filePath, out IHistoryReader historyReader);
 
         /// <summary>
         /// Get IUnknown object with the specified IID in the assembly at the specified file path.
@@ -122,20 +136,6 @@ namespace FusionPInvoke
         /// <returns>Return <see cref="IIdentityAuthority"/>.</returns>
         [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IIdentityAuthority GetIdentityAuthority();
-
-        /// <summary>
-        /// Gets a value that indicates whether the specified assembly is managed.
-        /// </summary>
-        /// <param name="assemblyReference">The name of the assembly to check.</param>
-        /// <param name="isFrameworkAssembly">A Boolean value that indicates whether the assembly is managed.</param>
-        /// <param name="frameworkAssemblyIdentity"> An uncanonicalized string that contains the unique identity of the assembly.</param>
-        /// <param name="frameworkAssemblyIdentityLength">The length of <paramref name="frameworkAssemblyIdentity"/>.</param>
-        /// <returns><see cref="HRESULT"/>.</returns>
-        /// <remarks>If this assembly is part of the .NET Framework, the <paramref name="isFrameworkAssembly"/> parameter will contain a Boolean value of true.
-        /// If the named assembly is not part of the .NET Framework, or if the <paramref name="assemblyReference"/> parameter does not name an assembly, <paramref name="isFrameworkAssembly"/> will contain a Boolean value of false.</remarks>
-        [DllImport("Fusion.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        public static extern HRESULT IsFrameworkAssembly(string assemblyReference, out bool isFrameworkAssembly,
-            string frameworkAssemblyIdentity, int frameworkAssemblyIdentityLength);
 
         /// <summary>
         /// Deletes the common language runtime (CLR) download cache.

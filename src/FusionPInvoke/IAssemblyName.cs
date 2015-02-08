@@ -37,10 +37,10 @@ namespace FusionPInvoke
 
         [MethodImpl(MethodImplOptions.PreserveSig)]
         HRESULT BindToObject(object refIID, object pAsmBindSink, IApplicationContext pApplicationContext,
-            string szCodeBase, long llFlags, int pvReserved, int cbReserved, out int ppv);
+            [MarshalAs(UnmanagedType.LPWStr)] string szCodeBase, long llFlags, int pvReserved, int cbReserved, out int ppv);
 
         [MethodImpl(MethodImplOptions.PreserveSig)]
-        HRESULT GetName(out int lpcwBuffer, out int pwzName);
+        HRESULT GetName(out int lpcwBuffer, [Out, MarshalAs(UnmanagedType.LPWStr)] StringBuilder pwzName);
 
         [MethodImpl(MethodImplOptions.PreserveSig)]
         HRESULT GetVersion(out int pdwVersionHi, out int pdwVersionLow);

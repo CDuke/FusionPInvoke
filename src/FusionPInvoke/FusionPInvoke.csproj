@@ -62,6 +62,7 @@
     <Compile Include="IEnumDefinitionIdentity.cs" />
     <Compile Include="IEnumIDENTITY_ATTRIBUTE.cs" />
     <Compile Include="IEnumReferenceIdentity.cs" />
+    <Compile Include="IHistoryReader.cs" />
     <Compile Include="IIdentityAuthority.cs" />
     <Compile Include="IInstallReferenceEnum.cs" />
     <Compile Include="IInstallReferenceItem.cs" />

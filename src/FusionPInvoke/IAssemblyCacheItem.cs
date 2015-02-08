@@ -19,7 +19,7 @@ namespace FusionPInvoke
         /// <param name="maxSize"></param>
         /// <param name="stream"></param>
         /// <returns><see cref="HRESULT"/></returns>
-        HRESULT CreateStream(string assemblyName, int format, int formatFlags, int maxSize, out IStream stream);
+        HRESULT CreateStream([MarshalAs(UnmanagedType.LPWStr)] string assemblyName, int format, int formatFlags, int maxSize, out IStream stream);
 
         HRESULT IsNameEqual(IAssemblyName pName);
 
@@ -34,6 +34,6 @@ namespace FusionPInvoke
         /// Mark assembly as visible.
         /// </summary>
         /// <param name="flags">Flags.</param>
-        void MarkAssemblyVisible(uint flags);
+        void MarkAssemblyVisible(int flags);
     }
 }

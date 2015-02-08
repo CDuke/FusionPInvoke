@@ -10,9 +10,9 @@ namespace FusionPInvoke
 
         void GetContextNameObject(out IAssemblyName assemblyName);
 
-        void Set(string name, int value, int cbValue, int flags);
+        void Set([MarshalAs(UnmanagedType.LPWStr)] string name, int value, int cbValue, int flags);
 
-        void Get(string name, out int pvValue, ref int pcbValue, int flags);
+        void Get([MarshalAs(UnmanagedType.LPWStr)] string name, out int pvValue, ref int pcbValue, int flags);
 
         void GetDynamicDirectory(out int dynamicDir, ref int size);
     }
