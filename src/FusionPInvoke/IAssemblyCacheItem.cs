@@ -19,16 +19,17 @@ namespace FusionPInvoke
         /// <param name="maxSize"></param>
         /// <param name="stream"></param>
         /// <returns><see cref="HRESULT"/>.</returns>
-        HRESULT CreateStream([MarshalAs(UnmanagedType.LPWStr)] string assemblyName, int format, int formatFlags, int maxSize, out IStream stream);
+        HRESULT CreateStream([MarshalAs(UnmanagedType.LPWStr)] string assemblyName, CreateStreamFormat format, int formatFlags, int maxSize, out IStream stream);
 
         HRESULT IsNameEqual(IAssemblyName pName);
 
-        /// <summary>
-        ///Commits the cached assembly reference to memory.
-        /// </summary>
-        /// <param name="flags">Flags <see cref="AssemblyCacheItemFlags"/>.</param>
+        ///  <summary>
+        /// Commits the cached assembly reference to memory.
+        ///  </summary>
+        ///  <param name="flags">Flags <see cref="AssemblyCacheItemFlags"/>.</param>
+        /// <param name="result">Result of commit.</param>
         /// <returns><see cref="HRESULT"/>.</returns>
-        HRESULT Commit(AssemblyCacheItemFlags flags);
+        HRESULT Commit(AssemblyCacheItemFlags flags, out AssemblyCacheItemCommitResult result);
 
         /// <summary>
         /// Mark assembly as visible.

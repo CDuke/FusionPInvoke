@@ -36,6 +36,18 @@ namespace FusionPInvoke.Tests
             Assert.NotNull(assemblyScavenger);
         }
 
+        [Fact]
+        public void FactMethodName()
+        {
+            var assemblyCache = GetGlobalAssemblyCache();
+
+            IAssemblyCacheItem assemblyCacheItem;
+            var hresult = assemblyCache.CreateAssemblyCacheItem(CreateAssemblyCacheItemFlags.None, IntPtr.Zero, out assemblyCacheItem,
+                MscorlibName);
+
+            Assert.True(hresult);
+        }
+
         private static IAssemblyCache GetGlobalAssemblyCache()
         {
             IAssemblyCache assemblyCache;

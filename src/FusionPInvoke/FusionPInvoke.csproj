@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyBindFlags.cs" />
+    <Compile Include="AssemblyCacheItemCommitResult.cs" />
     <Compile Include="AssemblyCacheItemFlags.cs" />
     <Compile Include="AssemblyComparisonResult.cs" />
     <Compile Include="AssemblyInfo.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="CreateAssemblyCacheItemFlags.cs" />
     <Compile Include="CreateAssemblyNameObjectFlags.cs" />
     <Compile Include="CreateInstallReferenceFlags.cs" />
+    <Compile Include="CreateStreamFormat.cs" />
     <Compile Include="GetCachePathFlags.cs" />
     <Compile Include="GetDisplayNameFlags.cs" />
     <Compile Include="CreateAssemblyEnumFlags.cs" />
